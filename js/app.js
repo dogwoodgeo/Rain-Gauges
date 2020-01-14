@@ -434,7 +434,7 @@ function(
     label: function(value) {
       return value + '"';
     },
-    value: 50,
+    value: 0,
     //* Custom dial colors 
     color: function(value) {
       if(value < 1) {

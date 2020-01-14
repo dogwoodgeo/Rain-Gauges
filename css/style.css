@@ -15,16 +15,17 @@ body {
     height: 100%;
 }
 
-#panelDiv {
-    background-color: rgb(206, 206, 206);
-    position: absolute; 
-    right: 0;
-    height: 100%;
-    width: auto;
-    overflow: scroll;
-    padding-top: 10px;
-    padding-left: 5px;
-    padding-right: 10px;
+.container {
+  background-color: rgb(206, 206, 206);
+  position: absolute; 
+  padding-top: 20px;
+  right: 0;
+  height: 100%;
+  width: 30%;
+  overflow: scroll;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 #title {
@@ -37,15 +38,15 @@ body {
 }
 
 .gauge-container {
-    width: 150px;
-    height: 170px;
-    display: block;
-    padding: 10px;
-    margin: 10px;
-    text-align: center;
-    background: rgb(185, 185, 185);
-    box-shadow: 2px 2px #a7a7a7e5;
-  }
+  width: 150px;
+  height: 170px;
+  display: box;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  background: rgb(185, 185, 185);
+  box-shadow: 2px 2px #a7a7a7e5;
+}
   .gauge-container > .gauge > .dial {
     stroke: gray;
     stroke-width: 15;
