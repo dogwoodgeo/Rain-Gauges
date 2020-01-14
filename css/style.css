@@ -1,0 +1,78 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+#viewDiv {
+    position: absolute;
+    left: 0;
+    right: 0%;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+}
+
+#panelDiv {
+    background-color: rgb(206, 206, 206);
+    position: absolute; 
+    right: 0;
+    height: 100%;
+    width: auto;
+    overflow: scroll;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-right: 10px;
+}
+
+#title {
+    font-family: sans-serif;
+    font-size: 40px;
+    color: #309E75;
+    padding: 5px;
+    background: radial-gradient( rgba(216, 216, 216, 0.892), transparent);
+    box-shadow: none;
+}
+
+.gauge-container {
+    width: 150px;
+    height: 170px;
+    display: block;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    background: rgb(185, 185, 185);
+    box-shadow: 2px 2px #a7a7a7e5;
+  }
+  .gauge-container > .gauge > .dial {
+    stroke: gray;
+    stroke-width: 15;
+    /* fill: rgba(0,0,0,0); */
+  }
+  .gauge-container > .gauge > .value {
+    /* stroke: rgb(47, 227, 255); */
+    stroke-width: 16;
+    fill: rgba(0,0,0,0);
+  }
+  .gauge-container > .gauge > .value-text {
+    fill: whitesmoke;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  
+  #site-text {
+    color: whitesmoke; 
+    font-family: sans-serif;
+    font-size: 1.5em;
+    font-weight: bold; 
+  }
+
+  .datetime {
+    color: whitesmoke; 
+    font-family: sans-serif;
+    font-size: .7em;
+    font-weight: normal; 
+  }
