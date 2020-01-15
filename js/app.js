@@ -462,7 +462,7 @@ function(
     //* Custom dial colors
     color: function(value) {
       if(value < 1) {
-        return "#5ee432"; // green
+        return "#309E75"; // green
       }else if(value < 3.5) {
         return "#fffa50"; // yellow
       }else if(value < 4.1) {
