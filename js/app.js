@@ -124,11 +124,19 @@ function(
 
   //* SYMBOLS FOR RAIN GAUGES LAYER
   //* -----------------------------
+  //* GRAY Symbol
+  const graySymbol = {
+    type: "simple-marker",
+    outline: { color: 'white' },
+    size: 13,
+    color: '#686868'
+  };
+
   //* GREEN symbol
   const greenSymbol = {
     type: "simple-marker",
     outline: { color: 'white' },
-    size: 15,
+    size: 13,
     color: '#309E75'
   };
 
@@ -136,7 +144,7 @@ function(
   const yellowSymbol = {
     type: "simple-marker",
     outline: { color: '#808080' },
-    size: 15,
+    size: 13,
     color: '#EDD977'
   };
 
@@ -144,7 +152,7 @@ function(
   const orangeSymbol = {
     type: "simple-marker",
     outline: { color: 'white' },
-    size: 15,
+    size: 13,
     color: '#EA9E49'
   };
 
@@ -152,7 +160,7 @@ function(
   const redSymbol = {
     type: "simple-marker",
     outline: { color: 'white' },
-    size: 15,
+    size: 13,
     color: '#C4343E'
   };
 
@@ -160,62 +168,62 @@ function(
   let rainGaugesRenderer = new UniqueValueRenderer({
     //type: 'unique-value',
     field: 'TAG',
-    defaultSymbol: greenSymbol,
+    defaultSymbol: graySymbol,
     uniqueValueInfos: [
       {
         value: lmps,
-        symbol: greenSymbol
+        symbol: graySymbol
       },
       {
         value: cab,
-        symbol: greenSymbol
+        symbol: graySymbol
       },
       {
         value:cvps,
-        symbol: greenSymbol
+        symbol: graySymbol
       },
       {
         value: rrps,
-        symbol: greenSymbol
+        symbol: graySymbol
       },
       {
         value: lfps,
-        symbol: greenSymbol
+        symbol: graySymbol
       },
       {
         value: crps,
-        symbol: greenSymbol
+        symbol: graySymbol
       },
       {
         value: asps,
-        symbol: greenSymbol
+        symbol: graySymbol
       },
       {
         value: jrps,
-        symbol: greenSymbol
+        symbol: graySymbol
       },
       {
         value: hrps,
-        symbol: greenSymbol
+        symbol: graySymbol
       },
       {
         value: lps,
-        symbol: greenSymbol
+        symbol: graySymbol
       },
       {
         value: afwrf,
-        symbol: greenSymbol
+        symbol: graySymbol
       },
       {
         value: fcwrf,
-        symbol: greenSymbol
+        symbol: graySymbol
       }
     ]
   });
 
   let simpleRenderer = {
     type: 'simple',
-    symbol: greenSymbol
+    symbol: graySymbol
   }
 
   const rainBasinsLayer = new FeatureLayer({
@@ -225,8 +233,8 @@ function(
 
   const rainGaugesLayer = new FeatureLayer({
     url:'https://gis.lrwu.com/server/rest/services/RainGauges/Rain_Gauges/FeatureServer/0',
-    labelingInfo: [grayLabels]
-    //renderer: rainGaugesRenderer
+    labelingInfo: [grayLabels],
+    //renderer: simpleRenderer
   });
     
   //* Map object
@@ -269,7 +277,9 @@ function(
     value: 0,
     // Custom dial colors (Optional)
     color: function(value) {
-      if(value < 1) {
+      if (value === 0) {
+        return '#686868'; //gray
+      }else if(value < 1) {
         return '#309E75'; // green
       }else if(value < 3.5) {
         return '#EDD977'; // yellow
@@ -293,7 +303,9 @@ function(
     value: 0,
     // Custom dial colors (Optional)
     color: function(value) {
-      if(value < 1) {
+      if (value === 0) {
+        return '#686868'; //gray
+      }else if(value < 1) {
         return '#309E75'; // green
       }else if(value < 3.5) {
         return '#EDD977'; // yellow
@@ -317,7 +329,9 @@ function(
     value: 0,
     // Custom dial colors (Optional)
     color: function(value) {
-      if(value < 1) {
+      if (value === 0) {
+        return '#686868'; //gray
+      }else if(value < 1) {
         return '#309E75'; // green
       }else if(value < 3.5) {
         return '#EDD977'; // yellow
@@ -341,7 +355,9 @@ function(
     value: 0,
     // Custom dial colors (Optional)
     color: function(value) {
-      if(value < 1) {
+      if (value === 0) {
+        return '#686868'; //gray
+      }else if(value < 1) {
         return '#309E75'; // green
       }else if(value < 3.5) {
         return '#EDD977'; // yellow
@@ -365,7 +381,9 @@ function(
     value: 0,
     //* Custom dial colors 
     color: function(value) {
-      if(value < 1) {
+      if (value === 0) {
+        return '#686868'; //gray
+      }else if(value < 1) {
         return '#309E75'; // green
       }else if(value < 3.5) {
         return '#EDD977'; // yellow
@@ -389,7 +407,9 @@ function(
     value: 0,
     //* Custom dial colors
     color: function(value) {
-      if(value < 1) {
+      if (value === 0) {
+        return '#686868'; //gray
+      }else if(value < 1) {
         return '#309E75'; // green
       }else if(value < 3.5) {
         return '#EDD977'; // yellow
@@ -413,7 +433,9 @@ function(
     value: 0,
     //* Custom dial colors 
     color: function(value) {
-      if(value < 1) {
+      if (value === 0) {
+        return '#686868'; //gray
+      }else if(value < 1) {
         return '#309E75'; // green
       }else if(value < 3.5) {
         return '#EDD977'; // yellow
@@ -437,7 +459,9 @@ function(
     value: 0,
     //* Custom dial colors 
     color: function(value) {
-      if(value < 1) {
+      if (value === 0) {
+        return '#686868'; //gray
+      }else if(value < 1) {
         return '#309E75'; // green
       }else if(value < 3.5) {
         return '#EDD977'; // yellow
@@ -461,8 +485,10 @@ function(
     value: 0,
     //* Custom dial colors
     color: function(value) {
-      if(value < 1) {
-        return "#309E75"; // green
+      if (value === 0) {
+        return '#686868'; //gray
+      }else if(value < 1) {
+        return '#309E75'; // green
       }else if(value < 3.5) {
         return "#fffa50"; // yellow
       }else if(value < 4.1) {
@@ -485,7 +511,9 @@ function(
     value: 0,
     //* Custom dial colors 
     color: function(value) {
-      if(value < 1) {
+      if (value === 0) {
+        return '#686868'; //gray
+      }else if(value < 1) {
         return '#309E75'; // green
       }else if(value < 3.5) {
         return '#EDD977'; // yellow
@@ -509,7 +537,9 @@ function(
     value: 0,
     //* Custom dial colors
     color: function(value) {
-      if(value < 1) {
+      if (value === 0) {
+        return '#686868'; //gray
+      }else if(value < 1) {
         return '#309E75'; // green
       }else if(value < 3.5) {
         return '#EDD977'; // yellow
@@ -533,7 +563,9 @@ function(
     value: 0,
     //* Custom dial colors 
     color: function(value) {
-      if(value < 1) {
+      if (value === 0) {
+        return '#686868'; //gray
+      }else if(value < 1) {
         return '#309E75'; // green
       }else if(value < 3.5) {
         return '#EDD977'; // yellow
@@ -616,6 +648,7 @@ function(
 
           //* Caste the VALuE string to a float
           value = parseFloat(valueString)
+          value = +value.toFixed(2);
 
           //* Use VALUE (float) to set the value for the gauge visualization
           graph.setValue(value);
@@ -625,7 +658,14 @@ function(
 
           //* Change rain gauge layer symbols based on VALUE
           rainGaugesLayer.renderer = simpleRenderer;
-          if(value < 1) {
+          if(value === 0) {
+            rainGaugesRenderer.removeUniqueValueInfo(tag);
+            rainGaugesRenderer.addUniqueValueInfo({
+              value: tag, 
+              symbol: graySymbol
+              });             
+            greenArray.push(tag);
+          }else if(value < 1) {
             rainGaugesRenderer.removeUniqueValueInfo(tag);
             rainGaugesRenderer.addUniqueValueInfo({
               value: tag, 
