@@ -5,6 +5,7 @@ body {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    display: flex;
 }
 #viewDiv {
     position: absolute;
@@ -68,4 +69,22 @@ body {
     font-family: sans-serif;
     font-size: .7em;
     font-weight: normal; 
+  }
+
+  .esri-expand__container {
+    position: relative;
+    transition: 300ms;
+  }
+
+
+  .esri-expand__content--expanded {
+    opacity: 1;
+    background-color: whitesmoke; 
+    padding: 20px;
+    overflow: scroll;
+    word-wrap: normal;
+    width: 300px;
+    height: auto;
+    /* display: flex;  */
+    box-shadow: 2px 2px #a7a7a7e5; 
   }

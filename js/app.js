@@ -9,8 +9,8 @@ require([
   'esri/tasks/support/Query',
   'esri/tasks/QueryTask',
   'esri/renderers/UniqueValueRenderer', 
-  'esri/widgets/Home'
-
+  'esri/widgets/Home',
+  'esri/widgets/Expand'
 ],
 
 function(
@@ -21,7 +21,8 @@ function(
   Query,
   QueryTask,
   UniqueValueRenderer,
-  Home
+  Home,
+  Expand
 )
 
 {
@@ -257,9 +258,37 @@ function(
     view: view
   });
   
-  //view.ui.remove('zoom'); 
+
+  //* Build ABOUT Widget
+  //* ===================
+  const expandContent = `
+    <h3>LRWRA Rain Gauges</h4>
+    <p>This application displays the current rain amounts for LRWRA’s 12 rain gauges that are located throughout the City.</p>
+    <p>The data is pulled from rain gauges into a database every five (5) minutes. This is represented with time stamps displayed on each gauge graphic. The web application queries this data every 2.5 minutes and adjusts the graphics accordingly. This keeps the maximum time between updates at about 7.5 minutes (i.e., if you opened the page one second before the database pulled values from the rain gauges). </p>
+    <p>The color of the rain gauge points on the map are synced with the color of the gauge graphics based on rain amounts.</p>
+    <ul>
+      <li><span style="color: #808080; font-weight: bold;">Gray</span>: No rain</li>
+      <li><span style="color: #309E75; font-weight: bold;">Green</span>: 0.01" to 1”</li>
+      <li><span style="color: #EDD977; font-weight: bold;">Yellow</span>: 1.01” to 3.5”</li>
+      <li><span style="color: #EA9E49; font-weight: bold;">Orange</span>: 3.51” to 4.1”</li>
+      <li><span style="color: #CB2240; font-weight: bold;">Red</span>: > 4.1”</li>
+    </ul>
+    <p id="contact">Contact: <a href="mailto:Bradley.Jones@lrwra.com">Bradley Jones</a></p>
+  `
+  
+  infoExpand = new Expand({
+    expandIconClass: 'esri-icon-description',
+    view: view,
+    expandTooltip: 'Info about this app',
+    content: expandContent,
+    expanded: false,
+    mode: 'auto'
+  })
+
+
+  
   view.ui.add(home, 'top-left');
-  // view.ui.add('title', 'top-left'); 
+  view.ui.add(infoExpand, 'top-left');
 
 
   //* BUILD GAUGE VISUALIZATIONS
