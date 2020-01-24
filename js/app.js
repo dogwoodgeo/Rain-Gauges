@@ -284,11 +284,23 @@ function(
     expanded: false,
     mode: 'auto'
   })
-
-
   
   view.ui.add(home, 'top-left');
   view.ui.add(infoExpand, 'top-left');
+  view.ui.add("logoDiv", "top-right");
+
+  //* Remove the map view (viewDiv) for smart phones
+  view.watch('heightBreakpoint, widthBreakpoint', function() {
+    if (
+      view.heightBreakpoint === 'xsmall' ||
+      view.widthBreakpoint === 'xsmall'
+    ) {
+      view.ui.remove(infoExpand);
+      view.ui.remove("logoDiv");
+    } 
+  });
+  
+
 
 
   //* BUILD GAUGE VISUALIZATIONS

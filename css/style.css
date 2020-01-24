@@ -17,6 +17,13 @@ body {
     width: 65%;
 }
 
+#logoDiv {
+  background: rgb(245, 245, 245, .5);
+  box-shadow: none;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .container {
   background-color: rgb(206, 206, 206);
   position: absolute; 
